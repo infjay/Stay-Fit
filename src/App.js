@@ -8,19 +8,21 @@ import './App.css';
 import { AddBox } from '@mui/icons-material';
 import ResponsiveAppBar from "./components/appBar";
 import Navbar from "./components/Navbar";
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
+import IconButton from '@mui/material/IconButton';
+import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 
-const darkTheme = createTheme({
-  palette: {
-    mode: 'dark',
-  },
-});
 
+
+const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
 const App = () => {
+  const theme = useTheme();
+  const colorMode = React.useContext(ColorModeContext);
+
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
     <Box width="400px" sx={{width: { xl: '1448px' }}} m="auto">
         <ResponsiveAppBar />
