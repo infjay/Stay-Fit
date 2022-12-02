@@ -3,7 +3,7 @@ import Pagination from "@mui/material/Pagination";
 import {Box, Stack , Typography } from '@mui/material'
 
 import { exerciseOptions, fetchData } from '../utils/fetchData'
-const Exercises = ({exercises , setExercises,bodyPart}) => {
+const Exercises = ({exercises , setExercises , bodyPart}) => {
   console.log(exercises)
   return (
     <Box id="exercises"
@@ -15,7 +15,7 @@ const Exercises = ({exercises , setExercises,bodyPart}) => {
         Showing Results
       </Typography>
       <Stack direction="row" sx={{ gap: {lg: "110px", xs:"50px"}}}
-      >
+      flexWrap="wrap" justifyContent="center">
         {exercises.map((exercise,index)=> (
           <p>{exercise.name}</p>
         ))}
